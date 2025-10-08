@@ -1,0 +1,142 @@
+/* 1. Variables y Estilos Base */
+:root{
+  --bg:#f0f8ff; /* Fondo muy claro (Azul Cielo muy suave) */
+  --card:#ffffff; /* Fondo de tarjeta blanco */
+  --accent:#00bcd4; /* Turquesa (Color primario vibrante) */
+  --accent-light:#e0ffff; /* Menta muy claro para fondos */
+  --muted:#607d8b; /* Texto secundario gris azulado */
+  --text-dark:#263238; /* Texto principal oscuro */
+  --border:#b2ebf2; /* Borde claro y fresco */
+  --success:#8bc34a; /* Verde brillante para éxito */
+
+  --maxw:1200px;
+  --radius:16px;
+  /* Fuente optimizada para usar las del sistema del usuario (más rápido que una fuente web) */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text-dark)}
+.container{max-width:var(--maxw);margin:0 auto;padding:20px 20px}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* Clase para ocultar elementos controlada por JS */
+.hidden {
+  display: none !important;
+}
+
+/* 2. Estilos de Header y Navegación */
+header{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border)}
+.logo{display:flex;align-items:center;gap:12px}
+.logo .mark{
+  width:50px;
+  height:50px;
+  border-radius:12px;
+  background:linear-gradient(135deg,var(--accent),#2196f3);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  padding: 5px;
+}
+.logo-text div{font-weight:700;font-size:1.1rem}
+.logo-text .small{font-size:0.8rem;color:var(--muted)}
+nav a{margin:0 10px;color:var(--text-dark);font-weight:500;padding:5px 8px;border-radius:6px;transition:background-color 0.2s}
+nav a:hover, nav a.active{background-color:var(--accent-light);color:var(--accent);text-decoration:none}
+.menu-toggle{display:none}
+
+/* 3. Estilos de Card y Secciones */
+section{margin-top:35px}
+.card{background:var(--card);border-radius:var(--radius);box-shadow:0 10px 30px rgba(0,0,0,0.05);padding:30px;transition:transform 0.3s}
+.card:hover{transform:translateY(-2px);box-shadow:0 12px 35px rgba(0,0,0,0.08)}
+h1{font-size:2.5rem;margin:0 0 10px;color:var(--text-dark);line-height:1.2}
+h2{font-size:2rem;margin-top:0;margin-bottom:15px;border-bottom:2px solid var(--accent);padding-bottom:5px;color:var(--accent)}
+p.lead{font-size:1.15rem;color:var(--muted);margin:0 0 20px}
+ul{list-style:none;padding-left:0}
+li{padding:10px 0;border-bottom:1px dashed var(--border);font-size:1.05rem}
+li strong{color:var(--text-dark)}
+li:last-child{border-bottom:none}
+
+/* Botón CTA */
+.cta{
+  display:inline-block;
+  background:var(--accent);
+  color:white;
+  padding:12px 25px;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:600;
+  font-size:1rem;
+  transition:background-color 0.3s, transform 0.1s;
+}
+.cta:hover{background-color:#0097a7;text-decoration:none;transform:translateY(-1px)}
+
+/* 4. Hero Section */
+.hero{display:grid;grid-template-columns:1fr 380px;gap:30px;align-items:center;margin-top:30px}
+.hero-image{background:linear-gradient(135deg, var(--accent-light), var(--accent));height:300px;border-radius:var(--radius);/* Placeholder: reemplazar con imagen real */}
+.hero .card{padding:40px;background:linear-gradient(135deg, white 60%, var(--accent-light))}
+
+/* 5. Features Section */
+.features{display:grid;grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));gap:20px;margin-top:20px}
+.feature{
+  padding:20px;
+  border-radius:12px;
+  background:var(--accent-light);
+  border:1px solid var(--accent);
+  text-align:center;
+  transition:transform 0.2s, box-shadow 0.2s;
+}
+.feature:hover{transform:translateY(-5px);box-shadow:0 8px 20px rgba(0,188,212,0.3)}
+.feature-icon{font-size:2rem;color:var(--accent);margin-bottom:10px;}
+.feature h4{margin:0 0 5px;font-size:1.1rem;color:var(--text-dark)}
+.feature p{font-size:0.9rem;color:var(--muted)}
+
+/* 6. Tabla de Comparación Mejorada */
+.compare-table{width:100%;border-collapse:separate;border-spacing:0;margin-top:20px}
+.compare-table th,.compare-table td{padding:15px;text-align:left;border-bottom:1px solid var(--border)}
+.compare-table th{background-color:var(--accent);color:white;font-weight:600}
+.compare-table tr:nth-child(even) td{background-color:var(--accent-light)}
+.compare-table tr:hover td{background-color:#b2ebf2}
+.compare-table tr:first-child th:first-child{border-top-left-radius:var(--radius)}
+.compare-table tr:first-child th:last-child{border-top-right-radius:var(--radius)}
+.check-icon{color:var(--success);font-weight:bold;font-size:1.1rem}
+
+/* 7. Footer Mejorado */
+footer{
+  margin-top:40px;
+  padding:25px 0;
+  text-align:center;
+  color:white;
+  font-size:0.9rem;
+  background-color:var(--text-dark);
+  border-top:5px solid var(--accent);
+}
+footer a{color:var(--accent-light)}
+
+/* 8. Adaptabilidad (Responsivo) */
+@media (max-width: 992px){
+  .hero{grid-template-columns:1fr;text-align:center}
+  .hero-image{height:250px}
+  .hero .card{padding:30px}
+  h1{font-size:2rem}
+  p.lead{font-size:1rem}
+  nav{display:none}
+  .menu-toggle{display:block;font-size:1.5rem;cursor:pointer}
+}
+@media (max-width: 768px){
+  .container{padding:15px}
+  .card{padding:20px}
+  h2{font-size:1.5rem}
+  .hero-image{height:200px}
+  .compare-table th, .compare-table td{padding:10px;font-size:0.9rem}
+  .compare-table{display:block;overflow-x:auto;white-space:nowrap}
+}
+@media (max-width: 576px){
+  h1{font-size:1.8rem}
+  p.lead{font-size:0.95rem}
+  .logo .mark{width:40px;height:40px;}
+  .logo-text div{font-size:1rem}
+  .logo-text .small{display:none}
+  .cta{padding:10px 20px;font-size:0.9rem}
+}
